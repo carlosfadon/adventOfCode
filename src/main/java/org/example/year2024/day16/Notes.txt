@@ -1,0 +1,4 @@
+- Check why my initial algorithm was not working and remember what is the use case
+to use a PriorityQueue (BFS?)
+
+When to use BFS and when to use Dijkstra
