@@ -4,7 +4,8 @@ public enum Direction {
     UP(0, -1),
     DOWN(0, 1),
     LEFT(-1, 0),
-    RIGHT(1, 0);
+    RIGHT(1, 0),
+    UNKNOWN(0, 0);
 
     public final int dx;
     public final int dy;
@@ -20,6 +21,7 @@ public enum Direction {
             case DOWN -> RIGHT;
             case LEFT -> DOWN;
             case RIGHT -> UP;
+            case UNKNOWN -> UNKNOWN;
         };
     }
 
@@ -29,6 +31,7 @@ public enum Direction {
             case DOWN -> LEFT;
             case LEFT -> UP;
             case RIGHT -> DOWN;
+            case UNKNOWN -> UNKNOWN;
         };
     }
 
@@ -38,6 +41,7 @@ public enum Direction {
             case DOWN -> UP;
             case LEFT -> RIGHT;
             case RIGHT -> LEFT;
+            case UNKNOWN -> UNKNOWN;
         };
     }
 }

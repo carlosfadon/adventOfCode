@@ -1,13 +1,16 @@
 package org.aoc.year2024.day23;
 
+import org.aoc.common.AoC;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
-public class Day23 {
+public class Day23 extends AoC {
 
+    Day23() {
+        super(2024, 23);
+    }
 
     // 3249 wrong
     public static void main(String[] args) throws URISyntaxException, IOException {
@@ -18,7 +21,7 @@ public class Day23 {
     }
 
     void runPart1() throws URISyntaxException, IOException {
-        var mapConnections = new Day23().readInput("day23/input.txt");
+        var mapConnections = readLines();
         //System.out.println(mapConnections);
 
         //Set<Set<String>> sets = findSetsOfThreeInterconectedComputers(mapConnections);
@@ -35,7 +38,7 @@ public class Day23 {
     }
 
     void runPart2() throws URISyntaxException, IOException {
-        List<String> lines = new Day23().readInput("day23/input.txt");
+        List<String> lines = readLines();
         Map<String, Set<String>> mapConnections = new HashMap<>();
         Set<String> setComputers = new HashSet<>();
 
@@ -52,18 +55,6 @@ public class Day23 {
         List<String> listResult = largestParty.stream().sorted().toList();
         String result = String.join(",", listResult);
         System.out.println("Result: " + result);
-    }
-
-    List<String> readInput(String file) throws URISyntaxException, IOException {
-
-        var resource = getClass().getClassLoader().getResource(file);
-        if (resource == null) {
-            throw new IllegalArgumentException("File not found: " + file);
-        }
-        List<String> lines = Files.readAllLines(Paths.get(resource.toURI()));
-
-
-        return lines;
     }
 
 //    Set<Set<String>> findSetsOfThreeInterconectedComputers(Map<String, Set<String>> mapConnections) {
